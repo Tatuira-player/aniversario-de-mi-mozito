@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Feliz Aniversário mi mozito ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg,#ff7eb3,#ff758c,#ffb199);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+overflow:hidden;
+}
+
+/* container estilo app */
+
+.app{
+background:rgba(255,255,255,0.1);
+backdrop-filter: blur(10px);
+padding:40px;
+border-radius:25px;
+max-width:650px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* titulo */
+
+h1{
+font-size:40px;
+margin-bottom:20px;
+}
+
+/* carta */
+
+p{
+font-size:19px;
+line-height:1.6;
+}
+
+/* botão */
+
+button{
+margin-top:30px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4d6d;
+cursor:pointer;
+transition:0.3s;
+font-weight:bold;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* surpresa */
+
+#surpresa{
+display:none;
+margin-top:35px;
+font-size:22px;
+animation: aparecer 1s ease;
+}
+
+/* animação */
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* corações */
+
+.heart{
+position:absolute;
+font-size:20px;
+animation: subir 6s linear infinite;
+opacity:0.7;
+}
+
+@keyframes subir{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-10vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<h1>Feliz Aniversário ❤️</h1>
+
+<p>
+Finalmente 11 de março. Hoje, 17 anos atrás, nasceu a pessoa que deixa minha vida mais feliz.
+
+Obrigado por existir e por estar comigo. Você se encaixou na minha vida de um jeito único e eu não trocaria você por nada.
+
+Quero crescer ao seu lado, viver muita coisa ainda e um dia ficarmos velhinhos juntos.
+
+Fiz esse pequeno aplicativo porque achei que seria mais especial do que só uma carta.
+</p>
+
+<button onclick="revelar()">Abrir Surpresa 🎁</button>
+
+<div id="surpresa">
+💖 Eu te amo muito.<br><br>
+Obrigado por existir na minha vida.<br><br>
+Que esse seja apenas mais um de muitos aniversários que ainda vamos viver juntos.<br><br>
+Feliz 17 anos minha abóbora ❤️
+</div>
+
+</div>
+
+<audio id="musica" preload="auto" loop>
+<source src="Alianca.m4a" type="audio/mp4">
+</audio>
+
+<script>
+
+function revelar(){
+
+let musica = document.getElementById("musica");
+
+document.getElementById("surpresa").style.display="block";
+
+musica.volume = 0.8;
+musica.play();
+
+}
+
+/* corações subindo */
+
+function criarCoracao(){
+
+const heart = document.createElement("div");
+
+heart.className = "heart";
+
+heart.innerHTML = "❤️";
+
+heart.style.left = Math.random()*100 + "vw";
+
+heart.style.fontSize = (20 + Math.random()*30) + "px";
+
+heart.style.animationDuration = (4 + Math.random()*3) + "s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(criarCoracao,500);
+
+</script>
+
+</body>
+</html>
